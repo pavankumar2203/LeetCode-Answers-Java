@@ -20,6 +20,7 @@ public class Solution {
             update maxlen with set.size
             return maxlen
         */
+        
         HashSet<Character> set = new HashSet<Character>();
         int i = 0;
         int maxLen = 0;
