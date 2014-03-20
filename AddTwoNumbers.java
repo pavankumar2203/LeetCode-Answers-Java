@@ -22,6 +22,7 @@ public class Solution {
             if both lists are done:
                 check c
         */
+        
         ListNode n = new ListNode(-1);
         ListNode h = n;//temp head
         int c = 0;
