@@ -3,8 +3,6 @@ import java.util.HashSet;
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         /*
-            brute force O(n^2)
-            
             for HashSet in Java, insert and lookup are both O(1)
             so we can scan the list twice, 1st time to build set,
             and 2nd time to check if target - elem exists
