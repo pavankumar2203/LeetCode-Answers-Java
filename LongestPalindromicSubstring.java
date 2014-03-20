@@ -5,7 +5,9 @@ public class Solution {
                 1. **BAB**
                 2. **ABBA**
             so we can scan s twice for each case
-            for each possible center, expand 1 char to both sides till find unmatched chars. worse case O(n^2) time O(1) space
+            for each possible center, expand 1 char to both sides till find unmatched chars. 
+            
+            worse case O(n^2) time O(1) space
         */
         
         if(s == null || s == "") {
