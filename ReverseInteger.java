@@ -5,7 +5,7 @@ public class Solution {
         
         /*
             consider int overflow
-            O(n) time O(1) space algo (n is number of digits)
+            O(n) time O(1) space algo (n is number of digits):
             save sign
             long retval
             while x>0:
