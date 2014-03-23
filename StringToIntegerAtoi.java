@@ -40,7 +40,7 @@ public class Solution {
             }
         }
         
-        if(str == "") {
+        if(str.equals("")) {
             //throw new IllegalArgumentException("Illegal arg");
             return 0;
         }
