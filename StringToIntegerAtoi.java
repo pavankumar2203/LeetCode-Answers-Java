@@ -26,7 +26,7 @@ public class Solution {
             return 0;
         }
         
-        boolean isNegative = false;
+        boolean isNegative = false; 
         if(str.charAt(0) == '-') {
             isNegative = true;
             str = str.substring(1);
