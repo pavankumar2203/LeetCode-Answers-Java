@@ -32,7 +32,7 @@ public class Solution {
             if(n!=newNode && !set.contains(n)) {
                 dfs1(n, set);
             }
-        }
+        } 
     }
     private void dfs2(UndirectedGraphNode node, HashSet<UndirectedGraphNode> set) {
         set.add(node);
