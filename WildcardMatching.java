@@ -1,40 +1,20 @@
 public class Solution {
     public boolean isMatch(String s, String p) {
-        p = removeDuplicateStars(p); //O(P)
-        return isMatch0(s, p);
+        return isMatch0(s, 0, p, 0);
     }
-    private boolean isMatch0(String s, String p) {
-        if(s.equals(p)) return true;
-        if (s.isEmpty() || p.isEmpty()) return p.equals("*");
-        char pc = p.charAt(0);
-        char sc = s.charAt(0);
-        if (pc != '*' && pc != '?') {
-            return pc == sc && isMatch0(s.substring(1), p.substring(1)); // T(S-1, P-1)
-        }
-        if (pc == '?') {
-            return isMatch0(s.substring(1), p.substring(1)); // T(S-1, P-1)
-        }
-        if(p.charAt(p.length()-1)!='*'){
-            return isMatch0(new StringBuilder(s).reverse().toString(),
-                    new StringBuilder(p).reverse().toString());
-        }
-        for(int i = s.length(); i >= 0; i--) {
-            if(isMatch0(s.substring(i), p.substring(1))) return true; //S*T(S-1, P-1)
-        }
-        return false;
-    }
-
-    private String removeDuplicateStars(String s) {
-        if (s.length() == 0) return s;
-        StringBuilder sb = new StringBuilder();
-        sb.append(s.charAt(0));
-        for (int i = 1; i < s.length(); i++) {
-            char c = s.charAt(i);
-            char c0 = s.charAt(i - 1);
-            if (!(c == '*' && c0 == '*')) {
-                sb.append(c);
+    private boolean isMatch0(String s, int i, String p, int j) {
+        if(j==p.length()) return i==s.length();
+        if(i==s.length()) return p.charAt(j)=='*' && isMatch0(s, i, p, j+1);
+        if(p.charAt(j)=='?') return isMatch0(s, i+1, p, j+1);
+        if(p.charAt(j)!='*') return s.charAt(i)==p.charAt(j) && isMatch0(s, i+1, p, j+1);
+        if(p.length()==j+1) return true;
+        if(p.charAt(j+1)=='*') return isMatch0(s, i, p, j+1);
+        //p is like *[^*]xxxx
+        for(int k=i; k<s.length(); k++) {
+            if(s.charAt(k)==p.charAt(j+1)) {
+                if(isMatch0(s, k+1, p, j+2)) return true;
             }
         }
-        return sb.toString();
+        return false;
     }
 }
