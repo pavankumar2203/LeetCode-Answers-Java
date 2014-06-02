@@ -89,3 +89,32 @@ public class LRUCache {
         }
     }
 }
+
+/*
+
+import java.util.*;
+
+public class LRUCache {
+    private Map<Integer, Integer> cache;
+    
+    public LRUCache(int capacity) {
+        final int c = capacity;
+        cache = new LinkedHashMap<Integer, Integer>(c, 0.75F, true) {
+            protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+                return size() > c;
+            }
+        };
+    }
+    
+    public int get(int key) {
+        if(cache.containsKey(key))
+            return cache.get(key);
+        else return -1;
+    }
+    
+    public void set(int key, int value) {
+        cache.put(key, value);
+    }
+}
+
+*/
